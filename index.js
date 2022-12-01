@@ -22,5 +22,16 @@ readFile('./input.txt', 'utf8', (err, data) => {
     return mostCalories;
   }, 0);
 
-  console.log(mostCalories);
+  // console.log(mostCalories);
+
+  //* Part Two
+  const caloriesArr = newArr.map((arr) =>
+    arr.reduce((sum, num) => sum + Number(num), 0)
+  );
+  caloriesArr.sort((a, b) => b - a);
+
+  const topThree = caloriesArr.slice(0, 3);
+  const topThreeTotalcalories = topThree.reduce((sum, num) => sum + num);
+
+  console.log(topThreeTotalcalories);
 });
